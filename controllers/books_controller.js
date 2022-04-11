@@ -34,10 +34,10 @@ books.get('/seed', (req, res) => {
         "imageURL": "https://imgur.com/qYLKtPH.jpeg"
       }])
         .then(res.status(200).json({
-            message: 'Seed successful'
+            message: 'status ok'
         }))
-        .catch(res.status(400).json({
-            message: 'Seed unsuccessful'
+        .catch(res.status(404).json({
+            message: 'page not found'
         }))
 })
 
@@ -48,10 +48,11 @@ books.get('/', (req, res) => {
     Book.find()    
         .then(foundBooks => {
             res.status(200).json(foundBooks)
+            
         })
         .catch(err => {
-            res.status(400).json({
-                message: 'error, no books found'
+            res.status(404).json({
+                message: 'page not found'
             })
         })
 })
@@ -64,8 +65,8 @@ books.get('/:id', (req, res) => {
             res.status(200).json(foundBook)
         })
         .catch(err => {
-            res.status(400).json({
-                message: 'error, could not find the book'
+            res.status(404).json({
+                message: 'page not found'
             })
         })
 })
@@ -79,8 +80,8 @@ books.put('/:id', (req, res) => {
             res.status(200).json(updatedBook)
         })
         .catch(err => {
-            res.status(400).json({
-                message: 'error, could not edit the book'
+            res.status(304).json({
+                message: 'not_modified'
             })
         })
 })
@@ -92,12 +93,12 @@ books.delete('/:id', (req, res) => {
     Book.findByIdAndDelete(req.params.id)
         .then(deletedBook => {
             res.status(200).json({
-                message: 'Delete successful'
+                message: 'status ok'
             })
         })
         .catch(err => {
-            res.status(400).json({
-                message: 'error, could not delete the book'
+            res.status(404).json({
+                message: 'page not found'
             })
         })
 })
@@ -110,8 +111,8 @@ books.post('/', (req, res) => {
             res.status(200).json(createdBook)
         })
         .catch(err => {
-            res.status(400).json({
-                message: 'error, could not create the book'
+            res.status(402).json({
+                message: 'payment_required'
             })
         })
 })
