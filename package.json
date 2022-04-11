@@ -1,0 +1,33 @@
+{
+  "name": "books-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanHPaez/books-api.git"
+  },
+  "author": "Ryan Paez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanHPaez/books-api/issues"
+  },
+  "homepage": "https://github.com/RyanHPaez/books-api#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-react-views": "^0.11.0",
+    "global": "^4.4.0",
+    "method": "^2.0.0",
+    "mongoose": "^6.2.10",
+    "nodemon": "^2.0.15",
+    "override": "^0.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
