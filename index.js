@@ -1,39 +1,35 @@
-const express = require('express')
-const cors = require('cors')
-const mongoose = require('mongoose')
-const app = express()
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const cors = require("cors");
 
 
 
 //middleware
-require('dotenv').config()
-const PORT = process.env.PORT
-app.use(express.json())
-app.use(cors())
-
-
+require("dotenv").config();
+const PORT = process.env.PORT;
+app.use(express.json());
+app.use(cors());
 
 //mongoose
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-    console.log('connected to mongo on: ', process.env.MONGO_URI)
-})
-
+mongoose.connect(
+  process.env.MONGO_URI,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("connected to mongo");
+  }
+);
 
 // index
-app.get('/', (req, res) =>{
-    res.send(`
+app.get("/", (req, res) => {
+  res.send(`
     <body>
    <h1> Hello World!</h1>
-    </body>`)
-})
-
+    </body>`);
+});
 
 //books controller
-const booksController = require('./controllers/books_controller')
-app.use('/books', booksController)
+const booksController = require("./controllers/books_controller");
+app.use("/books", booksController);
 
-
-//listen  
-app.listen(PORT, () =>{
-    console.log(`Listening on port: ${PORT}`)
-})
+app.listen(process.env.PORT, () => {console.log('Listening')})
