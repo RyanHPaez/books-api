@@ -42,13 +42,13 @@ books.get("/seed", (req, res) => {
       res.status(200).json({
         message: "status ok",
       })
-    )
+    ) 
     .catch(
       res.status(404).json({
         message: "page not found",
-      })
-    );
-});
+      }) 
+    ); 
+}); 
 
 //index
 books.get("/", (req, res) => {
@@ -56,9 +56,10 @@ books.get("/", (req, res) => {
     .then((foundBooks) => {
       res.status(200).json(foundBooks);
     })
+    
     .catch((err) => {
       res.status(404).json({
-        message: "page not found",
+        message: "page not found in index",
       });
     });
 });
@@ -66,13 +67,14 @@ books.get("/", (req, res) => {
 //show
 books.get("/:id", (req, res) => {
   Book.findById(req.params.id)
-    .then((foundBook) => {
+    .then((foundBooks) => {
       res.status(200).json(foundBook);
+      console.log(seeds)
     })
     .catch((err) => {
       res.status(404).json({
-        message: "page not found",
-      });
+        message: "page not found in show",
+      }); console.log("seeds are missing")
     });
 });
 

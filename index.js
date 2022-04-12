@@ -6,17 +6,17 @@ const cors = require("cors");
 
 
 //middleware
-require("dotenv").config();
 const PORT = process.env.PORT;
 app.use(express.json());
 app.use(cors());
+require("dotenv").config();
 
 //mongoose
 mongoose.connect(
   process.env.MONGO_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
-    console.log("connected to mongo");
+    console.log("connected to mongodb!");
   }
 );
 
@@ -27,6 +27,8 @@ app.get("/", (req, res) => {
    <h1> Hello World!</h1>
     </body>`);
 });
+
+
 
 //books controller
 const booksController = require("./controllers/books_controller");
